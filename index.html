@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The World Should Care — Haiti</title>
+
+<style>
+    body {
+        margin: 0;
+        background: linear-gradient(to bottom, #001f3f, #b30000);
+        font-family: Arial, sans-serif;
+        text-align: center;
+        color: white;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-top: 20px;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 5px black;
+    }
+
+    .scroll-text {
+        width: 90%;
+        margin: 15px auto;
+        font-size: 18px;
+        line-height: 1.6;
+        animation: scrollAnimation 25s linear infinite;
+    }
+
+    @keyframes scrollAnimation {
+        0% { transform: translateY(100px); opacity: 0.2; }
+        20% { opacity: 1; }
+        100% { transform: translateY(-100%); opacity: 0.4; }
+    }
+
+    audio {
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    .btn-share {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    button {
+        padding: 12px 18px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background: gold;
+        color: black;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: white;
+    }
+
+    img {
+        width: 150px;
+        border-radius: 10px;
+        margin-top: 10px;
+        border: 3px solid white;
+    }
+
+    h2 {
+        margin-top: 30px;
+        text-decoration: underline;
+    }
+</style>
+</head>
+
+<body>
+
+<img src="beat4.jpg" alt="Teacher Ronald">
+
+<h1>THE WORLD SHOULD BE CONCERNED ON HAITI'S STRUGGLE</h1>
+
+<!-- MAIN MUSIC -->
+<h3>🎶 Background Music</h3>
+<audio id="music" src="beat4.mp3" controls loop></audio>
+
+<!-- SPEECH -->
+<h2>🎤 Speech for Haiti</h2>
+<audio id="speech" src="speech.mp3" controls></audio>
+
+<!-- SCROLLING MESSAGE -->
+<p class="scroll-text">
+    The world should care when Haiti suffers — not because we are different,
+    but because we are the same. We are all children of God. A nation should not
+    be forgotten because it struggles. Our future depends on compassion, unity,
+    understanding — and action, not silence.
+</p>
+
+<!-- SHARE BUTTONS -->
+<div class="btn-share">
+    <button onclick="shareWhatsApp()">WhatsApp</button>
+    <button onclick="shareFacebook()">Facebook</button>
+    <button onclick="copyLink()">Copy Link</button>
+</div>
+
+<script>
+    // Autoplay fix (mobile requires user interaction)
+    window.onload = () => {
+        const music = document.getElementById("music");
+        music.play().catch(() => {
+            console.log("Autoplay blocked until user interacts.");
+        });
+    };
+
+    function shareWhatsApp() {
+        let url = window.location.href;
+        window.open("https://wa.me/?text=" + encodeURIComponent(url), "_blank");
+    }
+
+    function shareFacebook() {
+        let url = window.location.href;
+        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url), "_blank");
+    }
+
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href);
+        alert("🔗 Link copied!");
+    }
+</script>
+
+</body>
+</html>
